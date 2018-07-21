@@ -1,18 +1,33 @@
-const DataLoader = require('./data-loader')
+const IgdbDataLoader = require('./igdb-data-loader')
+const CoursesLoader = require('./courses-loader')
 
-let dataLoader
+let igdbDataLoader
+let coursesLoader
 
 class QueriesProvider {
     constructor() {
-        dataLoader = new DataLoader()
+        igdbDataLoader = new IgdbDataLoader()
+        coursesLoader = new CoursesLoader()
+    }
+
+    getCourse(args) {
+        return coursesLoader.single(args.id)
+    }
+
+    getCourses(args) {
+        return coursesLoader.list(args.topic)
+    }
+
+    updateCourseTopic(args) {
+        return coursesLoader.updateTopic(args.id, args.topic)
     }
 
     getGames(args) {
-        return dataLoader.games(args.search, args.limit)
+        return igdbDataLoader.games(args.search, args.limit)
     }
 
     getCompanies(args) {
-        return dataLoader.companies(args.search, args.limit)
+        return igdbDataLoader.companies(args.search, args.limit)
     }
 }
 

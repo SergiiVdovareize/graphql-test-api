@@ -1,9 +1,9 @@
 const igdb = require('igdb-api-node')
-const DataLoader = require('../src/data-loader')
+const IgdbDataLoader = require('../src/igdb-data-loader')
 
-describe('DataLoader tests', () => {
+describe('IgdbDataLoader tests', () => {
     let promiseSpy
-    let dataLoader
+    let igdbDataLoader
     let client
 
     function composeExpectedParams(term, limit) {
@@ -19,7 +19,7 @@ describe('DataLoader tests', () => {
         promiseSpy = jasmine.createSpyObj('promise', ['then', 'catch'])
         promiseSpy.then.and.returnValue(promiseSpy)
         spyOn(igdb, 'default').and.returnValue(client)
-        dataLoader = new DataLoader()
+        igdbDataLoader = new IgdbDataLoader()
     })
 
     describe('tests games loader', () => {
@@ -30,19 +30,19 @@ describe('DataLoader tests', () => {
         it("checks games loader", () => {
             const term = 'term'
             const limit = 15
-            dataLoader.games(term, limit)
+            igdbDataLoader.games(term, limit)
             expect(client.games).toHaveBeenCalledWith(composeExpectedParams(term, limit))
         })
 
         it("checks games loader without limit", () => {
             const term = 'term'
-            dataLoader.games(term)
+            igdbDataLoader.games(term)
             expect(client.games).toHaveBeenCalledWith(composeExpectedParams(term, 10))
         })
 
         it("checks games loader with huge limit", () => {
             const term = 'term'
-            dataLoader.games(term, 99999)
+            igdbDataLoader.games(term, 99999)
             expect(client.games).toHaveBeenCalledWith(composeExpectedParams(term, 10))
         })
     })
@@ -55,19 +55,19 @@ describe('DataLoader tests', () => {
         it("checks companies loader", () => {
             const term = 'term'
             const limit = 15
-            dataLoader.companies(term, limit)
+            igdbDataLoader.companies(term, limit)
             expect(client.companies).toHaveBeenCalledWith(composeExpectedParams(term, limit))
         })
 
         it("checks companies loader without limit", () => {
             const term = 'term'
-            dataLoader.companies(term)
+            igdbDataLoader.companies(term)
             expect(client.companies).toHaveBeenCalledWith(composeExpectedParams(term, 10))
         })
 
         it("checks companies loader with huge limit", () => {
             const term = 'term'
-            dataLoader.companies(term, 99999)
+            igdbDataLoader.companies(term, 99999)
             expect(client.companies).toHaveBeenCalledWith(composeExpectedParams(term, 10))
         })
     })

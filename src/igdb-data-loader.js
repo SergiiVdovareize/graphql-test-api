@@ -6,7 +6,7 @@ const gameFields = ['name', 'id', 'summary', 'url', 'cover']
 const companyFields = ['name', 'id', 'url', 'logo']
 let client
 
-class DataLoader {
+class IgdbDataLoader {
     constructor() {
         client = igdb.default()
     }
@@ -94,4 +94,4 @@ function composeGame(data) {
     }
 }
 
-module.exports = DataLoader
+module.exports = IgdbDataLoader

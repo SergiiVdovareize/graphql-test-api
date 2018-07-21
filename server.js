@@ -2,29 +2,16 @@ const express = require('express')
 const express_graphql = require('express-graphql')
 const { buildSchema } = require('graphql')
 const QueriesProvider = require('./src/queries-provider')
+const schemaFile = require('./schema.js')
 
 const queriesProvider = new QueriesProvider()
-const schema = buildSchema(`
-    type Query {
-        getGames(search: String, limit: Int): [Game]
-        getCompanies(search: String, limit: Int): [Company]
-    },
-    type Game {
-        id: Int
-        name: String
-        summery: String
-        url: String
-        coverImageUrl: String
-    },
-    type Company {
-        id: Int,
-        name: String,
-        logo: String,
-        url: String
-    }
-`);
+const schema = buildSchema(schemaFile)
 
 const root = {
+    message: () => 'Hello, is it me you\'re looking for?',
+    course: queriesProvider.getCourse,
+    courses: queriesProvider.getCourses,
+    updateCourseTopic: queriesProvider.updateCourseTopic,
     getGames: queriesProvider.getGames,
     getCompanies: queriesProvider.getCompanies,
 }
