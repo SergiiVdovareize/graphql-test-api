@@ -32,19 +32,19 @@ describe('DataLoader tests', () => {
             const limit = 15
             dataLoader.games(term, limit)
             expect(client.games).toHaveBeenCalledWith(composeExpectedParams(term, limit))
-        });
+        })
 
         it("checks games loader without limit", () => {
             const term = 'term'
             dataLoader.games(term)
             expect(client.games).toHaveBeenCalledWith(composeExpectedParams(term, 10))
-        });
+        })
 
         it("checks games loader with huge limit", () => {
             const term = 'term'
             dataLoader.games(term, 99999)
             expect(client.games).toHaveBeenCalledWith(composeExpectedParams(term, 10))
-        });
+        })
     })
 
     describe('tests companies loader', () => {
@@ -57,18 +57,18 @@ describe('DataLoader tests', () => {
             const limit = 15
             dataLoader.companies(term, limit)
             expect(client.companies).toHaveBeenCalledWith(composeExpectedParams(term, limit))
-        });
+        })
 
         it("checks companies loader without limit", () => {
             const term = 'term'
             dataLoader.companies(term)
             expect(client.companies).toHaveBeenCalledWith(composeExpectedParams(term, 10))
-        });
+        })
 
         it("checks companies loader with huge limit", () => {
             const term = 'term'
             dataLoader.companies(term, 99999)
             expect(client.companies).toHaveBeenCalledWith(composeExpectedParams(term, 10))
-        });
+        })
     })
 })

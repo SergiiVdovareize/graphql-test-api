@@ -36,12 +36,12 @@ function composeLoadOptions(term, limit, type) {
     switch (type) {
         case GAMES_TYPE:
             fields = gameFields
-            break;
+            break
         case COMPANIES_TYPE:
             fields = companyFields
-            break;
+            break
         default:
-        // nothing
+            // nothing
     }
 
     return {
@@ -64,10 +64,10 @@ function composeSearchResult(response, type) {
         switch (type) {
             case GAMES_TYPE:
                 result.push(composeGame(item))
-                break;
+                break
             case COMPANIES_TYPE:
                 result.push(composeCompany(item))
-                break;
+                break
             default:
                 // nothing
         }
