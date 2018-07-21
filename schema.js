@@ -19,6 +19,7 @@ type Course {
 type Game {
     id: Int
     name: String
+    slug: String
     summery: String
     url: String
     coverImageUrl: String

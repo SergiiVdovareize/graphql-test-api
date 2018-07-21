@@ -2,7 +2,7 @@ const igdb = require('igdb-api-node')
 
 const GAMES_TYPE = 'games'
 const COMPANIES_TYPE = 'companies'
-const gameFields = ['name', 'id', 'summary', 'url', 'cover']
+const gameFields = ['name', 'id', 'slug', 'summary', 'url', 'cover']
 const companyFields = ['name', 'id', 'url', 'logo']
 let client
 
@@ -88,6 +88,7 @@ function composeGame(data) {
     return {
         id: data.id,
         name: data.name,
+        slug: data.slug,
         summery: data.summary,
         url: data.url,
         coverImageUrl: data.cover && data.cover.url || null,
