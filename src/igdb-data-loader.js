@@ -52,10 +52,7 @@ function composeLoadOptions(term, limit, type) {
 }
 
 function checkLimit(limit = 10) {
-    if (limit < 1 || limit > 100) {
-        limit = 10
-    }
-    return limit
+    return limit > 1 && limit < 100 ? limit : 10
 }
 
 function composeSearchResult(response, type) {
