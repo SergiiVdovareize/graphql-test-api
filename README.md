@@ -8,9 +8,9 @@
 4. Tests: `npm test`
 
 ### Entrypoints
-0. `message: String`
-1. `getCourse(id: Int!): Course`
-2. `getCourses(topic: String): [Course]`
-3. `updateCourseTopic(is: Int!, topic: String!): Course`
-4. `getGames(name: String!, limit: Int): [Game]`
-5. `getCompanies(name: String!, limit: Int): [Company]`
+1. `message: String`
+2. `getCourse(id: Int!): Course`
+3. `getCourses(topic: String): [Course]`
+4. `updateCourseTopic(is: Int!, topic: String!): Course`
+5. `getGames(name: String!, limit: Int): [Game]`
+6. `getCompanies(name: String!, limit: Int): [Company]`
