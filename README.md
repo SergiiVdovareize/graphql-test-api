@@ -1,4 +1,4 @@
-# igdb-data-loader
+# GraphQL test API with igdb data loader
 
 ### Usage
 1. Set up IGDB_API_KEY variable before using the server:
