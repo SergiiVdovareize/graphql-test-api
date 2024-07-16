@@ -1,19 +1,19 @@
 {
   "name": "absoluteviziontask",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "no description in free version",
   "main": "index.js",
   "scripts": {
     "test": "node_modules/.bin/jasmine",
     "start": "node server.js"
   },
-  "author": "s.vdovareize",
+  "author": "Sergii Vdovareize",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3",
-    "express-graphql": "^0.6.12",
-    "graphql": "^0.13.2",
-    "igdb-api-node": "^3.1.7",
-    "jasmine": "^3.1.0"
+    "express": "^4.19.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.3.0",
+    "igdb-api-node": "^5.0.2",
+    "jasmine": "^5.1.0"
   }
 }
